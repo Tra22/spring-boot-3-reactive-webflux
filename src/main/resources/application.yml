@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: demo
+  reactor:
+    context-propagation: AUTO
+management:
+  tracing:
+    enabled: true
+    sampling:
+      probability: 1.0
+  endpoint:
+    health:
+      show-details: ALWAYS
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+        exclude: shutdown,env,beans
+  metrics:
+    tags:
+      application: ${spring.application.name:"UNKNOWN"}
+client:
+  fake:
+    api:
+      url: https://fakestoreapi.com
+
